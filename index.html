@@ -16,7 +16,7 @@
     header{position:fixed;left:0;right:0;top:12px;z-index:40}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:8px 16px;backdrop-filter: blur(6px);}
     .brand{display:flex;gap:12px;align-items:center}
-    .brand .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#09203f,#123353);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:700}
+    ..logo-img {width: 44px; height: 44px; border-radius: 10px; object-fit: contain; background: #0b1220; padding: 4px;}
     nav ul{display:flex;gap:12px;align-items:center;margin:0;padding:0;list-style:none}
     nav li{font-size:14px;color:var(--muted)}
     nav a:hover{color:var(--accent)}
@@ -79,8 +79,7 @@
   <header>
     <div class="container nav card">
       <div class="brand">
-        <div class="logo"></div>
-        <img src="logo.jpg" alt="로고">
+        <img src="logo.jpg" alt="로고" class="logo-img">
         <div>
           <div style="font-weight:700;color:white">데이타운감정평가사사무소</div>
           <div style="font-size:12px;color:var(--muted)">AVM 기반 감정평가 · 자문</div>
@@ -261,6 +260,7 @@
   </script>
 </body>
 </html>
+
 
 
 
