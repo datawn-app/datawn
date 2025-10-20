@@ -128,7 +128,10 @@
     footer{padding:28px 0;color:var(--muted);font-size:13px;text-align:center;border-top:1px solid rgba(255,255,255,0.04);margin-top:40px}
 
     @media(max-width:880px){
-      .about{flex-direction:column;align-items:center;text-align:center}
+      .about{flex-direction:column;align-items:center}
+      .about-text {text-align: left;}
+      .about-photo {text-align: center;}
+       section h2{text-align:center; margin-top:40px;}}
       .contact-form{grid-template-columns:1fr}
       .services{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
       section h2{text-align:center;margin-top:40px;}
@@ -286,6 +289,7 @@
   <script>
     function scrollToEl(id){
       document.getElementById(id).scroll
+
 
 
 
