@@ -133,6 +133,26 @@
       .services{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
       section h2{text-align:center;margin-top:40px;}
     }
+    @media(max-width:500px){
+  .brand span {
+    font-size: 13px;
+    word-break: keep-all;
+    white-space: nowrap;
+  }
+  .brand small {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .brand .logo {
+    width: 36px;
+  }
+  nav ul {
+    gap: 12px;
+  }
+  nav li {
+    font-size: 12px;
+  }
+}
   </style>
 </head>
 <body>
@@ -280,6 +300,7 @@
   <script>
     function scrollToEl(id){
       document.getElementById(id).scroll
+
 
 
 
