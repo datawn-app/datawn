@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>데이타운감정평가사사무소</title>
+  <meta name="description" content="데이타운감정평가사사무소 공식 홈페이지 - AVM 기반 감정평가, 데이터 융합 솔루션" />
+  <style>
+    :root{
+      --bg1:#0f1724; --bg2:#071126;
+      --accent:#38bdf8; --muted:#9ca3af; --card:#0b1220;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{
+      height:100%;
+      font-family:Inter,"Noto Sans KR",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      color:#e6eef8;
+      background:linear-gradient(180deg,var(--bg1),var(--bg2));
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+    /* HEADER */
+    header{
+      position:fixed;top:0;left:0;width:100%;
+      background:rgba(10,15,25,0.8);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      z-index:1000;
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      height:64px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+    }
+    .brand .logo{
+      width:44px;height:auto;border-radius:10px;
+    }
+    .brand span{font-weight:700;font-size:15px}
+    nav ul{list-style:none;display:flex;gap:24px}
+    nav li{font-size:14px;color:var(--muted);cursor:pointer}
+    nav li:hover{color:white}
+
+    /* HERO */
+    .hero{
+      min-height:90vh;
+      display:grid;align-items:center;
+      position:relative;overflow:hidden;
+      padding-top:120px;padding-bottom:80px;
+      background:linear-gradient(180deg,rgba(15,23,36,0.9),rgba(7,17,38,0.95)), 
+      url("skyline_silhouette.jpg") center bottom / cover no-repeat;
+      background-attachment: fixed;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;top:0;left:0;width:100%;height:100%;
+      background:rgba(0,0,0,0.3);
+      z-index:0;
+    }
+    .hero-inner{display:flex;gap:40px;align-items:center;flex-wrap:wrap;position:relative;z-index:1}
+    .hero-left{flex:1;min-width:280px}
+    h1{font-size:clamp(28px,5vw,48px);line-height:1.1;margin:0;color:white}
+    .slogan{font-size:clamp(18px,2.2vw,22px);color:var(--accent);margin-top:12px;opacity:0;animation:fadeUp 1s ease 0.2s forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+    .cta{margin-top:22px;display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#052035}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      border-radius:14px;
+      padding:18px;color:var(--muted);
+    }
+
+    /* ABOUT */
+    section{padding:100px 0}
+    section h2{
+      color:white;
+      margin-bottom:24px;
+      margin-top:60px;
+      text-align:left;
+    }
+    .about{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+    .about-text{flex:1;min-width:280px}
+    .about-photo{flex:0 0 260px;display:flex;justify-content:center}
+    .about-photo img{
+      width:100%;
+      max-width:180px; /* 기존보다 30% 축소 */
+      border-radius:16px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.3);
+      object-fit:cover;
+    }
+    .career-list{margin-top:14px;padding-left:18px;line-height:1.6}
+    .career-list li{color:var(--muted)}
+
+    /* SERVICES */
+    .services{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    .service{padding:20px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));transition:all .25s ease;}
+    .service:hover{transform:translateY(-4px);border-color:rgba(255,255,255,0.08)}
+    .service h3{margin:8px 0;color:white}
+    .service p{margin:0;color:var(--muted);font-size:14px}
+
+    /* STEPS */
+    .steps{display:flex;gap:12px;flex-wrap:wrap}
+    .step{flex:1;min-width:220px;padding:16px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.02));}
+    .step-number{background:rgba(255,255,255,0.06);padding:6px 12px;border-radius:999px;width:fit-content;font-weight:600}
+
+    /* CONTACT */
+    .contact-form{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted)}
+    input,textarea,select{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:white}
+    textarea{min-height:140px}
+
+    /* PARTNERS */
+    .partners{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;align-items:center;justify-items:center}
+    .partner img{width:140px;filter:grayscale(1);opacity:0.8;transition:0.3s}
+    .partner img:hover{filter:none;opacity:1;transform:scale(1.05);}
+
+    footer{padding:28px 0;color:var(--muted);font-size:13px;text-align:center;border-top:1px solid rgba(255,255,255,0.04);margin-top:40px}
+
+    @media(max-width:880px){
+      .about{flex-direction:column;align-items:center;text-align:center}
+      .contact-form{grid-template-columns:1fr}
+      .services{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+      section h2{text-align:center;margin-top:40px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo.png" alt="데이타운 로고" class="logo">
+        <div>
+          <span>데이타운감정평가사사무소</span><br>
+          <small style="color:var(--muted);font-size:12px">AVM 기반 감정평가 · 자문</small>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li onclick="scrollToEl('about')">대표소개</li>
+          <li onclick="scrollToEl('services')">업무영역</li>
+          <li onclick="scrollToEl('process')">평가절차</li>
+          <li onclick="scrollToEl('contact')">의뢰하기</li>
+          <li onclick="scrollToEl('partners')">협력사</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-left">
+        <h1>데이터와 현장의 결합,<br>스마트한 감정평가를 만듭니다.</h1>
+        <div class="slogan card">
+          <strong style="color:white">정확한 가치, 빠른 의사결정</strong>
+          <div style="margin-top:6px;color:var(--muted);font-size:14px">
+            AVM(자동평가모형)과 현장감정의 하이브리드 솔루션.
+          </div>
+        </div>
+        <div class="cta">
+          <button class="btn btn-primary" onclick="scrollToEl('contact')">의뢰하기</button>
+          <a class="btn btn-ghost" href="#services">업무영역 보기</a>
+        </div>
+      </div>
+      <div class="card" style="width:360px;border-radius:16px;">
+        <h3 style="margin-top:0;color:white">서비스 개요</h3>
+        <p>부동산 AVM 기반의 신속하고 신뢰성 높은 감정평가 서비스를 제공합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="container">
+    <h2>대표소개</h2>
+    <div class="about">
+      <div class="about-photo">
+        <img src="image.jpg" alt="대표이사 사진">
+      </div>
+      <div class="about-text">
+        <div class="card" style="padding:28px">
+          <h3 style="margin-top:0;color:white">이정윤 대표 감정평가사</h3>
+          <p style="color:var(--muted)">데이터 기반 감정평가 서비스를 선도하며, 정확하고 투명한 분석으로 신뢰받는 평가를 제공합니다.</p>
+          <ul class="career-list">
+            <li>데이타운감정평가사사무소 대표 감정평가사</li>
+            <li>주식회사 데이타운 대표이사</li>
+            <li>한양대학교 부동산융합대학원 겸임교수</li>
+            <li>(전) 중앙감정평가법인 이사</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="container">
+    <h2>업무영역</h2>
+    <div class="services">
+      <div class="service"><h3>경매 및 공매평가</h3><p>권리관계·시장가치·낙찰가율 등을 종합 분석.</p></div>
+      <div class="service"><h3>보상평가</h3><p>공익사업 및 수용 보상가 산정.</p></div>
+      <div class="service"><h3>일반거래 평가</h3><p>매매·상속·증여 등 거래 시 적정가격 산정.</p></div>
+      <div class="service"><h3>조세감정평가</h3><p>과세 근거로 활용 가능한 평가보고서 제공.</p></div>
+      <div class="service"><h3>기업평가</h3><p>영업가치와 자산가치를 고려한 공정가치 평가.</p></div>
+      <div class="service"><h3>무형자산 평가</h3><p>브랜드, 특허 등 무형자산의 가치평가.</p></div>
+      <div class="service"><h3>IFRS 자산재평가</h3><p>국제회계기준(IFRS)에 따른 자산 재평가.</p></div>
+      <div class="service"><h3>부동산 컨설팅</h3><p>시장 데이터 기반의 투자 전략 자문.</p></div>
+      <div class="service"><h3>기타 자문평가</h3><p>프로젝트별 맞춤형 분석 및 가치 평가.</p></div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="container">
+    <h2>감정평가 절차</h2>
+    <div class="steps">
+      <div class="step"><div class="step-number">1</div><h4 style="color:white">의뢰 접수</h4><p>기본정보 접수 및 예비 검토.</p></div>
+      <div class="step"><div class="step-number">2</div><h4 style="color:white">자료수집 및 분석</h4><p>등기·거래사례 데이터 분석.</p></div>
+      <div class="step"><div class="step-number">3</div><h4 style="color:white">현장조사</h4><p>물리적·환경적 요소 실사.</p></div>
+      <div class="step"><div class="step-number">4</div><h4 style="color:white">보고서 제출</h4><p>감정평가서 제출.</p></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="container">
+    <h2>의뢰하기</h2>
+    <div class="contact-form">
+      <form class="card" onsubmit="event.preventDefault();submitForm()" style="padding:18px;">
+        <label for="name">담당자/의뢰인</label>
+        <input id="name" required placeholder="이름을 입력하세요" />
+        <label for="phone">연락처</label>
+        <input id="phone" placeholder="전화번호 또는 휴대폰" />
+        <label for="type">부동산 유형</label>
+        <select id="type">
+          <option>아파트</option><option>다세대/연립</option><option>오피스텔</option>
+          <option>상업용(오피스/상가)</option><option>토지</option>
+        </select>
+        <label for="details">의뢰 내용</label>
+        <textarea id="details" placeholder="간단한 주소 / 상황 / 요청사항"></textarea>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <button class="btn btn-primary" type="submit">의뢰 접수</button>
+          <button class="btn btn-ghost" type="button" onclick="location.href='mailto:info@data-wn.com?subject=감정평가 의뢰'">이메일로 의뢰</button>
+        </div>
+        <div id="formResult" style="margin-top:10px;color:var(--muted);font-size:13px"></div>
+      </form>
+      <div class="card" style="padding:18px;align-self:start">
+        <h4 style="margin-top:0;color:white">연락처</h4>
+        <p>전화: 02-2635-8485</p>
+        <p>이메일: datawn@naver.com</p>
+        <p>서울특별시 강남구 논현동 210-3, SH빌딩 302호</p>
+        <a class="btn btn-ghost" href="#">카카오톡 채널 연결</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section id="partners" class="container">
+    <h2>협력사</h2>
+    <div class="partners card" style="padding:24px">
+      <div class="partner"><img src="images/partner1.png" alt="협력사1 로고"></div>
+      <div class="partner"><img src="images/partner2.png" alt="협력사2 로고"></div>
+      <div class="partner"><img src="images/partner3.png" alt="협력사3 로고"></div>
+    </div>
+  </section>
+
+  <footer>
+    © 데이타운감정평가사사무소 | 사업자등록번호: 518-06-02592
+  </footer>
+
+  <script>
+    function scrollToEl(id){
+      document.getElementById(id).scroll
