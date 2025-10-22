@@ -288,8 +288,22 @@
   </footer>
 
   <script>
-    function scrollToEl(id){
-      document.getElementById(id).scroll
+  function scrollToEl(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      // 부드럽게 해당 섹션으로 스크롤 이동 (헤더 높이 보정)
+      const headerHeight = document.querySelector('header').offsetHeight;
+      const elementPosition = el.getBoundingClientRect().top + window.scrollY - headerHeight + 5;
+
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
+</script>
+
+
 
 
 
