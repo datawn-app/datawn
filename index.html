@@ -2,7 +2,13 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Security-Policy"
-      content="default-src 'self' https: data:;">
+      content="
+        default-src 'self' https: data:;
+        style-src 'self' 'unsafe-inline' https:;
+        script-src 'self' 'unsafe-inline' https:;
+        img-src 'self' data: https:;
+        font-src 'self' data: https:;
+      ">
 
 <meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -295,3 +301,4 @@
 </body>
 
 </html>
+
