@@ -12,6 +12,11 @@
   <meta property="og:title" content="데이타운감정평가사사무소">
   <meta property="og:description" content="AVM 기반 스마트한 감정평가 솔루션">
   <meta property="og:url" content="https://datawn.co.kr">
+
+  <meta property="og:image" content="https://datawn.co.kr/og-image.jpg">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  
   <link rel="canonical" href="https://datawn.co.kr">
   <link rel="preload" as="image" href="main.webp">
 
@@ -32,6 +37,11 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ▼ [추가] 모바일 터치 시 파란색 영역 제거 */
+    input, button, a, .brand, .action-card {
+      -webkit-tap-highlight-color: transparent;
+    }
 
     html, body {
       font-family: "Pretendard", Inter, "Noto Sans KR", system-ui, -apple-system, sans-serif;
@@ -125,7 +135,14 @@
         background: rgba(255, 255, 255, 0.08) !important;
         box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
-    
+
+    /* ▼ [추가] 클릭 시 살짝 눌리는 효과 */
+    .action-card:active {
+        transform: translateY(-2px) scale(0.98);
+        transition: transform 0.1s;
+    }
+
+        
     /* 새로 추가할 협력사 텍스트 스타일 */
     .partner-label {
         font-size: 13px;
@@ -473,6 +490,7 @@ window.onclick = function(event) {
 </script>
 </body>
 </html>
+
 
 
 
