@@ -12,6 +12,11 @@
   <meta property="og:title" content="데이타운감정평가사사무소">
   <meta property="og:description" content="AVM 기반 스마트한 감정평가 솔루션">
   <meta property="og:url" content="https://datawn.co.kr">
+  
+  <meta property="og:image" content="https://datawn.co.kr/og-image.png">
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  
   <link rel="canonical" href="https://datawn.co.kr">
   <link rel="preload" as="image" href="main.webp">
 
@@ -19,6 +24,8 @@
   <meta name="google-site-verification" content="usgc5K4fCk4zHAdkC57zhDtfLpPoO0EghXrk68_R2Xc" />
   
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
   <style>
     :root {
@@ -32,6 +39,11 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* 모바일 터치 하이라이트 제거 */
+    input, button, a, .brand, .action-card {
+      -webkit-tap-highlight-color: transparent;
+    }
 
     html, body {
       font-family: "Pretendard", Inter, "Noto Sans KR", system-ui, -apple-system, sans-serif;
@@ -107,16 +119,13 @@
     /* CARD STYLE */
     .card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px; color: var(--muted); backdrop-filter: blur(5px); }
 
-/* [수정] 카드 내부 정렬을 위해 flex 속성 추가 */
     .action-card {
         transition: all 0.3s ease;
         cursor: pointer;
-        
-        /* ▼ 추가된 부분: 버튼을 강제로 맨 아래로 밀어내기 위한 설정 */
         display: flex;
         flex-direction: column; 
         justify-content: space-between; 
-        height: 100%; /* 그리드 높이에 꽉 차게 설정 */
+        height: 100%;
     }
     
     .action-card:hover {
@@ -126,17 +135,21 @@
         box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
     
-    /* 새로 추가할 협력사 텍스트 스타일 */
+    .action-card:active {
+        transform: translateY(-2px) scale(0.98);
+        transition: transform 0.1s;
+    }
+
     .partner-label {
         font-size: 13px;
         color: var(--muted);
         font-weight: 600;
-        margin-bottom: 8px; /* 버튼과의 간격 */
+        margin-bottom: 8px;
         display: block;
-        text-align: right; /* 오른쪽 정렬로 세련되게 */
+        text-align: right;
     }
 
-    /* SECTIONS (간격 넓게 유지) */
+    /* SECTIONS */
     section { padding-top: 180px; padding-bottom: 180px; }
     section h2 { 
         color: white; 
@@ -145,23 +158,23 @@
         border-left: 5px solid var(--accent); padding-left: 20px; 
     }
 
-    /* ★ [수정] ABOUT (슬림하게 크기 축소) ★ */
+    /* ABOUT */
     .about { 
         display: flex; 
         flex-wrap: wrap; 
-        gap: 30px;              /* 간격 줄임 (40->30) */
-        align-items: stretch;   /* 높이 맞춤 */
+        gap: 30px; 
+        align-items: stretch; 
         justify-content: center; 
     }
     
     .about-text { 
         flex: 1; 
-        min-width: 280px;       /* 너비 하한선 줄임 */
+        min-width: 280px; 
     }
 
     .about-text .card { 
-        padding: 24px;          /* 패딩 줄임 (30->24) */
-        height: 100%;       
+        padding: 24px; 
+        height: 100%; 
         display: flex;
         flex-direction: column;
         justify-content: center; 
@@ -171,7 +184,7 @@
     .about-text p { margin-top: 12px; font-size: 0.95rem; line-height: 1.6; color: #e5e7eb; }
 
     .about-photo { 
-        flex: 0 0 240px;        /* 사진 가로폭 줄임 (280->240) */
+        flex: 0 0 240px; 
         position: relative; 
     }
 
@@ -232,28 +245,26 @@
       .about-photo img { height: auto; aspect-ratio: 3/4; }
     }
 
-    /*모달창 스타일 추가*/
-.modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); }
-.modal-content { background: #161f2e; margin: 5% auto; padding: 40px; border: 1px solid rgba(56, 189, 248, 0.3); width: 90%; max-width: 700px; border-radius: 20px; color: #e6eef8; position: relative; max-height: 80vh; overflow-y: auto; }
-.modal-content h3 { color: var(--accent); margin-bottom: 20px; font-size: 22px; }
-.modal-content p { font-size: 14px; line-height: 1.8; color: var(--muted); white-space: pre-wrap; word-break: break-all;}
-.close-btn { position: absolute; top: 20px; right: 25px; color: var(--muted); font-size: 30px; cursor: pointer; transition: 0.2s; }
-.close-btn:hover { color: white; }
-
+    /* MODAL */
+    .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); }
+    .modal-content { background: #161f2e; margin: 5% auto; padding: 40px; border: 1px solid rgba(56, 189, 248, 0.3); width: 90%; max-width: 700px; border-radius: 20px; color: #e6eef8; position: relative; max-height: 80vh; overflow-y: auto; }
+    .modal-content h3 { color: var(--accent); margin-bottom: 20px; font-size: 22px; }
+    .modal-content p { font-size: 14px; line-height: 1.8; color: var(--muted); white-space: pre-wrap; word-break: break-all;}
+    .close-btn { position: absolute; top: 20px; right: 25px; color: var(--muted); font-size: 30px; cursor: pointer; transition: 0.2s; }
+    .close-btn:hover { color: white; }
   </style>
 </head>
 <body>
 
   <header>
     <div class="container nav">
-      <div class="brand" onclick="location.reload()">
+      <a href="/" class="brand">
            <img src="logo.png" alt="데이타운 로고" class="logo">
-
         <div style="text-align: left;">
           <span>데이타운감정평가사사무소</span><br>
           <small style="color: var(--muted); font-size: 12px; font-weight: 400;">데이터 기반 스마트 감정평가</small>
         </div>
-      </div>
+      </a>
       
      <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="메뉴 열기">☰</button>
 
@@ -355,7 +366,7 @@
     </div>
   </section>
 
-<section id="contact" class="container">
+  <section id="contact" class="container">
     <h2>가격 검토 및 의뢰하기</h2>
     <div class="contact-container">
       
@@ -395,23 +406,23 @@
     </div>
   </section>
 
-<footer>
-  <div class="container">
-    <div style="margin-bottom: 10px;">
-      <a href="javascript:void(0)" onclick="openModal()" style="font-size: 12px; text-decoration: underline;">개인정보처리방침 및 서비스 이용 안내</a>
+  <footer>
+    <div class="container">
+      <div style="margin-bottom: 10px;">
+        <a href="javascript:void(0)" onclick="openModal()" style="font-size: 12px; text-decoration: underline;">개인정보처리방침 및 서비스 이용 안내</a>
+      </div>
+      <div>
+        © 데이타운감정평가사사무소 | 대표: 이정윤 | 사업자등록번호: 518-06-02592<br>
+        서울특별시 강남구 논현동 210-3 SH빌딩 302호
+      </div>
     </div>
-    <div>
-      © 데이타운감정평가사사무소 | 대표: 이정윤 | 사업자등록번호: 518-06-02592<br>
-      서울특별시 강남구 논현동 210-3 SH빌딩 302호
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<div id="privacyModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <h3>개인정보처리방침 및 서비스 이용 안내</h3>
-    <p>
+  <div id="privacyModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h3>개인정보처리방침 및 서비스 이용 안내</h3>
+      <p>
 1. 수집하는 개인정보 항목
 데이타운감정평가사사무소는 상담 및 서비스 제공을 위해 아래와 같은 개인정보를 수집할 수 있습니다.
 - 수집항목: 성함, 연락처, 이메일, 물건지 주소 등
@@ -428,12 +439,9 @@
 
 5. 서비스 이용 안내
 본 홈페이지에서 제공하는 AI 예상 시세는 데이터 분석에 기반한 참고 수치이며, 정식 감정평가서와 차이가 있을 수 있습니다. 실제 의사결정 시에는 반드시 전문가의 정식 감정평가를 받으시기 바랍니다.
-
-    </p>
+      </p>
+    </div>
   </div>
-</div>
-
-
 
   <script>
     function scrollToEl(id) {
@@ -442,38 +450,46 @@
         const headerHeight = document.querySelector('header').offsetHeight;
         const elementPosition = el.getBoundingClientRect().top + window.scrollY - headerHeight;
         window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+        
         const navList = document.getElementById('nav-list');
-        if (navList.classList.contains('active')) { navList.classList.remove('active'); }
+        // 모바일에서만 닫기 동작 실행
+        if (navList.classList.contains('active')) { 
+            navList.classList.remove('active');
+            document.body.style.overflow = 'auto'; // [추가] 닫히면 스크롤 허용
+        }
       }
     }
+
     function toggleMenu() {
       const navList = document.getElementById('nav-list');
       navList.classList.toggle('active');
+      
+      // [추가] 모바일 메뉴 열렸을 때 배경 스크롤 막기
+      if (navList.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
     }
   
-/* 모달 제어 함수 */
-function openModal() {
-  document.getElementById("privacyModal").style.display = "block";
-  document.body.style.overflow = "hidden"; // 모달창 열릴 때 배경 스크롤 방지
-}
+    /* 모달 제어 함수 */
+    function openModal() {
+      document.getElementById("privacyModal").style.display = "block";
+      document.body.style.overflow = "hidden";
+    }
 
-function closeModal() {
-  document.getElementById("privacyModal").style.display = "none";
-  document.body.style.overflow = "auto"; // 모달창 닫힐 때 배경 스크롤 허용
-}
+    function closeModal() {
+      document.getElementById("privacyModal").style.display = "none";
+      document.body.style.overflow = "auto";
+    }
 
-// 모달 바깥 영역 클릭 시 닫기
-window.onclick = function(event) {
-  const modal = document.getElementById("privacyModal");
-  if (event.target == modal) {
-    closeModal();
-  }
-}
-
-</script>
+    // 모달 바깥 영역 클릭 시 닫기
+    window.onclick = function(event) {
+      const modal = document.getElementById("privacyModal");
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+  </script>
 </body>
 </html>
-
-
-
-
