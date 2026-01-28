@@ -12,11 +12,6 @@
   <meta property="og:title" content="데이타운감정평가사사무소">
   <meta property="og:description" content="AVM 기반 스마트한 감정평가 솔루션">
   <meta property="og:url" content="https://datawn.co.kr">
-  
-  <meta property="og:image" content="https://datawn.co.kr/og-image.jpg">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
   <link rel="canonical" href="https://datawn.co.kr">
   <link rel="preload" as="image" href="main.webp">
 
@@ -24,25 +19,6 @@
   <meta name="google-site-verification" content="usgc5K4fCk4zHAdkC57zhDtfLpPoO0EghXrk68_R2Xc" />
   
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "데이타운감정평가사사무소",
-    "image": "https://datawn.co.kr/logo.png",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "논현동 210-3 SH빌딩 302호",
-      "addressLocality": "서울특별시",
-      "addressRegion": "강남구",
-      "postalCode": "06103"
-    },
-    "telephone": "02-2635-8485",
-    "founder": "이정윤",
-    "url": "https://datawn.co.kr"
-  }
-  </script>
 
   <style>
     :root {
@@ -56,9 +32,6 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    /* [추가] 모바일 터치 최적화 */
-    input, button, a, .brand, .action-card { -webkit-tap-highlight-color: transparent; }
 
     html, body {
       font-family: "Pretendard", Inter, "Noto Sans KR", system-ui, -apple-system, sans-serif;
@@ -134,7 +107,7 @@
     /* CARD STYLE */
     .card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px; color: var(--muted); backdrop-filter: blur(5px); }
 
-    /* [수정] 카드 내부 정렬을 위해 flex 속성 추가 */
+/* [수정] 카드 내부 정렬을 위해 flex 속성 추가 */
     .action-card {
         transition: all 0.3s ease;
         cursor: pointer;
@@ -152,13 +125,6 @@
         background: rgba(255, 255, 255, 0.08) !important;
         box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
-    
-    /* [복구] 여기서 중괄호(})가 빠져 있어서 아래 스타일이 다 깨졌던 것을 수정했습니다 */
-    .action-card:active {
-        transform: translateY(-2px) scale(0.98); /* 살짝 내려가면서 작아짐 */
-        transition: transform 0.1s; /* 반응 속도를 빠르게 */
-    }
-    
     
     /* 새로 추가할 협력사 텍스트 스타일 */
     .partner-label {
@@ -195,7 +161,7 @@
 
     .about-text .card { 
         padding: 24px;          /* 패딩 줄임 (30->24) */
-        height: 100%;        
+        height: 100%;       
         display: flex;
         flex-direction: column;
         justify-content: center; 
@@ -267,12 +233,13 @@
     }
 
     /*모달창 스타일 추가*/
-    .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); }
-    .modal-content { background: #161f2e; margin: 5% auto; padding: 40px; border: 1px solid rgba(56, 189, 248, 0.3); width: 90%; max-width: 700px; border-radius: 20px; color: #e6eef8; position: relative; max-height: 80vh; overflow-y: auto; }
-    .modal-content h3 { color: var(--accent); margin-bottom: 20px; font-size: 22px; }
-    .modal-content p { font-size: 14px; line-height: 1.8; color: var(--muted); white-space: pre-wrap; word-break: break-all;}
-    .close-btn { position: absolute; top: 20px; right: 25px; color: var(--muted); font-size: 30px; cursor: pointer; transition: 0.2s; }
-    .close-btn:hover { color: white; }
+.modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); }
+.modal-content { background: #161f2e; margin: 5% auto; padding: 40px; border: 1px solid rgba(56, 189, 248, 0.3); width: 90%; max-width: 700px; border-radius: 20px; color: #e6eef8; position: relative; max-height: 80vh; overflow-y: auto; }
+.modal-content h3 { color: var(--accent); margin-bottom: 20px; font-size: 22px; }
+.modal-content p { font-size: 14px; line-height: 1.8; color: var(--muted); white-space: pre-wrap; word-break: break-all;}
+.close-btn { position: absolute; top: 20px; right: 25px; color: var(--muted); font-size: 30px; cursor: pointer; transition: 0.2s; }
+.close-btn:hover { color: white; }
+
   </style>
 </head>
 <body>
@@ -327,7 +294,7 @@
     <h2>대표소개</h2>
     <div class="about">
       <div class="about-photo">
-        <img src="ceo.jpg" alt="데이타운감정평가사사무소 이정윤 대표 감정평가사" onerror="this.src='https://via.placeholder.com/240x320?text=CEO+Photo'">
+        <img src="ceo.jpg" alt="이정윤 대표 감정평가사" onerror="this.src='https://via.placeholder.com/240x320?text=CEO+Photo'">
       </div>
       <div class="about-text">
         <div class="card">
@@ -466,6 +433,8 @@
   </div>
 </div>
 
+
+
   <script>
     function scrollToEl(id) {
       const el = document.getElementById(id);
@@ -504,3 +473,15 @@ window.onclick = function(event) {
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
